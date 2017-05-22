@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage{textcomp}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+
+\title{Laboratory No.2 at MS}
+\author{gr. FAF-161 st. Polina Gore}
+
+\begin{document}
+
+  \begin{titlepage}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+    \center % Center everything on the page
+
+    \textsc{\LARGE UTM}\\[1.5cm] % Name of your university/college
+    \textsc{\Large MS}\\[0.5cm] % Major heading such as course name
+
+    \HRule \\[0.4cm]
+    { \huge \bfseries Laboratory No.2}\\[0.4cm] % Title of your document
+    \HRule \\[1.5cm]
+
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+        \emph{Student:}\\
+        Polina \textsc{Gore} % Your name
+      \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+        \emph{Supervisor:} \\
+        Victor \textsc{Turcanu} % Supervisor's Name
+      \end{flushright}
+    \end{minipage}\\[4cm]
+
+    \vfill
+
+    {\large \today}\\[3cm]
+
+  \end{titlepage}
+
+  \pagenumbering{gobble}
+
+  \newpage
+  \pagenumbering{arabic}
+
+  \section{Densities}
+
+    \subsection{Problem No. 1}
+
+    Take a stick of unit length and break it into two pieces, choosing the
+    breakpoint at random.\\
+    Now break the longer of the two pieces at a random point.
+    What is the probability that the three pieces can be used to form a triangle?\\
+    Write a computer program that would simulate the experiment. Explain your results.
+
+
+    \subsection{Solution}
+    In this problem all we got to do is check if the broken parts can form a triangle.\\
+    For this, the Function isItriangle checks if a, b, c (the catheti) form a triangle.
+    It finds the longest stick and checks if the sum of the other two are less
+    than the length of the longest one.
+
+    All of that is then computed 10000 times.
+
+  \newpage
+
+    \subsection{Problem No.3}
+
+    Choose independently two numbers B and C at random from the interval [-1, 1]
+    with uniform distribution, and consider the quadratic equation \(X^2 + B*X + C = 0\).
+    Find the probability that the roots of this equation:\\
+      - are both real
+      - are both positive
+
+    \subsection{Solution}
+
+    First of all, in a for loop of 10000 cases, we randomize a B and a C on the [-1, 1]
+    interval, then we check if the obtained equations has real roots, and for the
+    other case, it the roots are positive.\\
+    If they are, we add 1 to the variables responsible for keeping the real roots case
+    and the positive roots case.
+
+    Thus, we obtain the probability for both cases, by dividing on the number
+    of total cases.
+
+  \newpage
+
+    \subsection{Problem 6}
+
+    At a mathematical conference, 10 participants are randomly seated around a circular table for meals.\\
+    Using simulation, estimate the probability
+    that no two people sit next to each other at both lunch and dinner.
+
+    Can you make an intelligent conjecture for the case of n participants when n is large?
+
+    \subsection{Solution}
+
+    It is easier to look at the code, since it contains all the necessary information
+    and comments.\\
+    Anyway, as usual, for 1000 cases, we check if no 2 people are sitting next
+    to each other. For this I shuffled the initial arrangement of people, and
+    saved the neighbours for each person, at each meeting.\\
+    Then I checked if the new neighbours dont coincide.\\
+    So, for a large n, the probability of 2 people sitting to each other on 2
+    different meetings is aproaching 0.
+
+
+  \newpage
+
+  \section{Random Variables}
+
+    \subsection{Problem No.8}
+
+    An insurance company has 1000 policies on men of age 50.\\
+    The company estimates that
+    the probability that a man of age 50 dies within a year is 0.01.\\
+    Estimate the number of claims that
+    the company can expect from beneficiaries of these men within a year.
+
+
+    \subsection{Solution}
+
+    I am not sure about this problem.\\
+    Since it is only one line of code and one comment that explains the method,
+    I leave it to you.
+
+  \newpage
+
+  \section{Important Distribution}
+
+    \subsection{Problem No.10}
+
+    Assume that the probability that there is a significant accident in a
+    nuclear power plant during one year’s time is 0.001.\\
+    If a country has 100 nuclear plants, estimate the probability
+    that there is at least one Chernobyl (or Black Mesa) during a given year.
+
+
+    \subsection{Solution}
+
+    And again, I do not know how to compute this problem, so I did it manually.\\
+    The explanation is inside the code.
+
+
+  \newpage
+
+  \subsection{Problem No.11}
+
+    Let U be a uniformly distributed random variable on [0, 1].\\
+    What is the probability that the equation
+    \(X^2 + 4U*X + 1 = 0\) has two distinct real roots x1 and x2 ?
+
+    \subsection{Solution}
+
+    This problem is similar to the Problem No.3.\\
+    Again, we check the roots of an equation with a random U that is on the
+    interval [0, 1] if they are real and distinct and compute the probability.
+
+  \newpage
+
+  \section{Continuous Probability}
+
+    \subsection{Problem No.12}
+
+    Suppose you toss a dart at a circular target of radius 10 inches. Given that
+    the dart lands in the upper half of the target, find the probability that:\\
+    - it lands in the right half of the target\\
+    - its distance from the center is less than 5 inches\\
+    - its distance from the center is greater than 5 inches\\
+    - it lands within 5 inches of the point (0, 5)\\
+
+    \subsection{Solution}
+
+    Here, we only use geometry to check where the darts land.\\
+    For example, if it lands in the right half of the upper half of the target
+    then\\ x \in [0, 10], y \in [0, \(\sqrt{10^2 - x^2}\)]\\
+    For the inner circle with radius 5, it is the same, \\but x \in [-5, 5],
+    y \in [0, \(\sqrt{5^2 - x^2}\)]\\
+    And so on, we compute it for 1000 cases, and find the probability for each.
+
+\end{document}

@@ -1,0 +1,350 @@
+\documentclass{article}
+\usepackage{textcomp}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{todonotes}
+\usepackage{float}
+\usepackage[center]{titlesec}
+
+\begin{document}
+
+  \begin{titlepage}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+    \center % Center everything on the page
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+    \textsc{\LARGE Technical University of Moldova}\\[1.5cm]
+    \textsc{\Large Special Mathematics}\\[0.5cm] % Major heading such as course name
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+    \HRule \\[0.4cm]
+    { \huge \bfseries Laboratory No.5}\\[0.4cm] % Title of your document
+    \HRule \\[1.5cm]
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+        \emph{Author:}\\
+          st. Polina \textsc{Gore}\\ gr. FAF-161 % Your name
+      \end{flushleft}
+    \end{minipage}
+~
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+        \emph{Supervisor:} \\
+        Victor \textsc{Țurcanu} % Supervisor's Name
+      \end{flushright}
+    \end{minipage}\\[2cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+    {\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+    \includegraphics[width=7cm]{utm2.png}\\[1cm] % Include a department/university logo - this will require the graphicx package
+
+%----------------------------------------------------------------------------------------
+
+    \vfill % Fill the rest of the page with whitespace
+
+  \end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+  \newpage
+  \pagenumbering{arabic}
+
+  % -------------- PROBLEM 1------------------------------------------------------
+  \restylefloat{table}
+  \begin{table}[H]
+    \centering
+    \textbf{The adjacent matrix for the friendship graph:}\\
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+      \hline
+      0 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 & 1 \\ \hline
+      0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 1 & 0 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 1 \\ \hline
+      0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\ \hline
+      1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & 1 \\ \hline
+      0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 0 & 1 \\ \hline
+      1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 1 \\ \hline
+      0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 1 & 0 & 0 & 0 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 1 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ \hline
+      0 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+      1 & 0 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hline
+    \end{tabular}
+  \end{table}
+
+  \section{Friends}
+    \centerline{Find the person with the most friends.}
+
+  \vspace{2em}
+
+  \subsection{Solution}
+    To find the number of friends each person from this graph has, we have to sum
+    the connections this person has with other people.\\ Having the adjacent matrix, it is easily done.\\
+    Knowing that 1 in that matrix stands for the connection between 2 nodes and
+    0 for no connection between 2 nodes, we only take a line (or a column,
+    it doesn't matter, since the adjacent matrix is symmetric) that is responsible
+    for a node, look at the values it has and sum them, thus, we can obtain the number
+    of edges of that node, in our case it's the number of friends that a person has.\\
+    By running the program (\emph{ex1\_friendly.py}), we notice that we have 2 people with
+    the largest number of friends, these are:\\
+    • Corrin Tally\\
+    • Ellie Francese\\
+    They both have 11 friends.
+
+
+  \newpage
+
+  %----------------------PROBLEM 2----------------------------------------------
+
+  \section{Sort}
+    \centerline{Sort all the people by the number of friends.}
+
+  \vspace{3em}
+
+  \subsection{Solution}
+
+    In this problem we use the same approach as in the previous exercise.\\
+    Just summing the 1's, and sorting them descending.
+
+    \vspace{2em}
+
+    \restylefloat{table}
+    \begin{table}[H]
+      \centering
+      \textbf{The output:}\\
+      \vspace{1em}
+      \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Name} & \textbf{Friends} \\ \hline
+        Ellie Francese & 11 \\ \hline
+        Corrin Tally   & 11 \\ \hline
+        Augustine Golub & 10 \\ \hline
+        Leandro Eagan  &  7 \\ \hline
+        Caleb Hobby    &  7 \\ \hline
+        Clarence Stalker &  6 \\ \hline
+        Lili Houghton  &  6 \\ \hline
+        Cruz Perna     &  6 \\ \hline
+        Sammie Womac   &  6 \\ \hline
+        Lorean Simcox  &  6 \\ \hline
+        Pearlie Moffet &  6 \\ \hline
+        Angila Ellinger &  5 \\ \hline
+        Marita Tegeler &  5 \\ \hline
+        Monet Mccoy    &  5 \\ \hline
+        Tiny Parkhurst &  4 \\ \hline
+        Alta Kennan    &  2 \\ \hline
+        Otilia Laxson  &  2 \\ \hline
+        Rebbecca Charlton & 2 \\ \hline
+        Elinore Orsborn &  2 \\ \hline
+        Jarred Marrow  &  1 \\ \hline
+      \end{tabular}
+    \end{table}
+
+
+  \newpage
+
+    %----------------------PROBLEM 3--------------------------------------------
+
+    \section{Let's do ratings}
+      For each person in the network, compute the ratings using Dijkstra's
+      algorithm to find the shortest path from a node to another.\\
+
+    \vspace{3em}
+
+    \subsection{Solution}
+      Solving this exercise wasn't particularly difficult, as Dijkstra's
+      algorithm can be found on the Internet. \\
+      So, in order to solve this problem, we have to find the shortest distances
+      for every node to every other nodes, substract 1 from each distance (the points)
+      and sum them together for every node.\\
+      The resulting rating is as follows:\\
+
+      \vspace{2em}
+
+      \restylefloat{table}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+          \hline
+          \textbf{Name} & \textbf{Rating} \\ \hline
+          Ellie Francese    & 8 \\ \hline
+          Corrin Tally      & 11 \\ \hline
+          Augustine Golub   & 12 \\ \hline
+          Caleb Hobby       & 13 \\ \hline
+          Lorean Simcox     & 13 \\ \hline
+          Pearlie Moffet    & 13 \\ \hline
+          Leandro Eagan     & 15 \\ \hline
+          Cruz Perna        & 16 \\ \hline
+          Lili Houghton     & 17 \\ \hline
+          Sammie Womac      & 17 \\ \hline
+          Angila Ellinger   & 17 \\ \hline
+          Marita Tegeler    & 18 \\ \hline
+          Clarence Stalker  & 18 \\ \hline
+          Monet Mccoy       & 20 \\ \hline
+          Tiny Parkhurst    & 21 \\ \hline
+          Rebbecca Charlton & 23 \\ \hline
+          Alta Kennan       & 27 \\ \hline
+          Elinore Orsborn   & 30 \\ \hline
+          Otilia Laxson     & 30 \\ \hline
+          Jarred Marrow     & 31 \\ \hline
+        \end{tabular}
+      \end{table}
+      \newpage
+
+  %----------------------PROBLEM 4--------------------------------------------
+
+    \section{Influential people}
+    Use the data from the previous exercise and find the new ”Rating” for each
+    person by multiplying it with 0.5 of the posting rate.\\
+    Please sort the people by the newly computed rating.\\
+
+    \vspace{3em}
+
+    \subsection{Solution}
+      For this problem we have to use the data obtained in the problem No.2,
+      where we found out the number of friends each person has.\\
+      Then, we will compute the new rating, using the new data found in the
+      file \emph{influence.txt}.\\
+      Finally, we sort the people by their new rating, obtaining this:\\
+
+      \vspace{2em}
+
+      \restylefloat{table}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|}
+          \hline
+          \textbf{Name} & \textbf{Rating} \\ \hline
+          Corrin Tally      & 47.163 \\ \hline
+          Ellie Francese    & 44.825 \\ \hline
+          Augustine Golub   & 28.250 \\ \hline
+          Sammie Womac      & 25.500 \\ \hline
+          Leandro Eagan     & 23.275 \\ \hline
+          Lorean Simcox     & 20.700 \\ \hline
+          Angila Ellinger   & 20.625 \\ \hline
+          Marita Tegeler    & 18.812 \\ \hline
+          Tiny Parkhurst    & 16.900 \\ \hline
+          Lili Houghton     & 16.500 \\ \hline
+          Cruz Perna        & 15.750 \\ \hline
+          Monet Mccoy       & 13.875 \\ \hline
+          Clarence Stalker  & 10.425 \\ \hline
+          Alta Kennan       &  9.900 \\ \hline
+          Pearlie Moffet    &  9.825 \\ \hline
+          Caleb Hobby       &  9.713 \\ \hline
+          Rebbecca Charlton &  7.700 \\ \hline
+          Otilia Laxson     &  4.525 \\ \hline
+          Elinore Orsborn   &  4.400 \\ \hline
+          Jarred Marrow     &  3.825 \\ \hline
+
+        \end{tabular}
+      \end{table}
+
+    \newpage
+    %----------------------PROBLEM 5--------------------------------------------
+
+    \section{Analyze your content}
+
+    You are publishing a book and would like to promote it through the use
+    of social media.\\
+    The book’s title is:
+
+    \vspace{2em}
+    \textcolor{purple}{\centerline{\textbf{”From T-Rex to Justin Bieber:
+    How Internet has changed the Politics, Art and cute Cats”}}}
+
+    \vspace{2em}
+    You have done some research in the world’s most popular social network
+    and have found that the range of interests is stored in \emph{interests.txt} .
+    Analyze your title and see what specter of interests is your book marketable to.
+
+    \vspace{3em}
+
+    \subsection{Solution}
+      For this problem, we have to extract the \textit{interests} from the file
+      mentioned above, then, after splitting the title into words, finding
+      the common interests.\\
+      That's all we need to find the specter of interests of this book.\\
+      The results are as follows:
+
+      \vspace{2em}
+
+      \restylefloat{table}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{l}
+            • Internet \\ \hline
+            • Art \\ \hline
+            • T-Rex \\ \hline
+            • Politics \\ \hline
+            • Cats \\ \hline
+            • Bieber~~~~~~~~~~~~~\textcolor{red}{DISCLAIMER: "Bieber" and "Music" are not related.} \\
+        \end{tabular}
+      \end{table}
+
+    \newpage
+
+    %----------------------PROBLEM 6--------------------------------------------
+
+  \section{Promote it}
+  We have provided you with a list of interests of each of these people.\\
+  You can find it in \emph{interests.txt} .\\
+  Considering the set of interests you have chosen, who of them would you market
+  the book to?\\
+  Provide us with a list of 5 people we should contact to make your book a bestseller!\\
+  Please use the names found in \emph{people\_interests.txt} .\\
+
+  \vspace{3em}
+
+  \subsection{Solution}
+    In order to obtain our top 5 promoters, we need the rating found in the
+    problem No.4 and the interests (of our book's title) from the previous
+    exercise.\\
+    Then, using this data we compute the new rating.\\
+    Our top 5 promoters are:\\
+
+    \vspace{2em}
+
+    \restylefloat{table}
+    \begin{table}[H]
+      \centering
+      \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Name} & \textbf{Rating} \\ \hline
+        Ellie Francese  & 8.965 \\ \hline
+        Marita Tegeler  & 7.525 \\ \hline
+        Augustine Golub & 5.650 \\ \hline
+        Sammie Womac    & 5.100 \\ \hline
+        Leandro Eagan   & 4.655 \\ \hline
+      \end{tabular}
+    \end{table}
+
+\end{document}
