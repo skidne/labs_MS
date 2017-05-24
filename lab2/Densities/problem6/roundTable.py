@@ -8,8 +8,7 @@
 
 from random import shuffle
 
-# saving the neighbours of each person in a dictionary #
-def findNeighbours(nr, meeting):
+def find_neighbours(nr, meeting):
     arrangement = {}
     for i in range(nr):
         if i == 0:
@@ -20,31 +19,35 @@ def findNeighbours(nr, meeting):
             arrangement[meeting[i]] = [meeting[i - 1], meeting[i + 1]]
     return arrangement
 
-# checking if at least one of the neighbours are the same #
 
 def check(nr, lunch, dinner):
-    lunchNeighbours = findNeighbours(nr, lunch)
-    dinnerNeighbours = findNeighbours(nr, dinner)
-    for key in lunchNeighbours:
-        for key2 in dinnerNeighbours:
+    lunch_neighbours = find_neighbours(nr, lunch)
+    dinner_neighbours = find_neighbours(nr, dinner)
+    for key in lunch_neighbours:
+        for key2 in dinner_neighbours:
             if key == key2:
-                exists = [i in dinnerNeighbours[key2] for i in lunchNeighbours[key]]
+                exists = [i in dinner_neighbours[key2] for i in lunch_neighbours[key]]
                 if exists == [True, True]:
                     return 0
     return 1
 
-# returns 1 if it didn't find the same neighbour twice #
 
-def noNeighbours(nr):
+def no_neighbours(nr):
     lunch = [x for x in range(nr)]
     dinner = [x for x in range(nr)]
     shuffle(lunch); shuffle(dinner)
-    if (check(nr, lunch, dinner)):
+    if check(nr, lunch, dinner):
         return 1
     return 0
 
+
+################################################################################
+
 cnt = 0
-for i in range(1000):
-    # you can check for numbers bigger than 10 #
-    cnt += noNeighbours(10);
-print("The probability is %.1f%%" % (cnt / 10))
+nr_people = 1000
+cases = 1000
+
+for i in range(cases):
+    cnt += no_neighbours(nr_people);
+
+print("The probability is %.1f%%" % (cnt / nr_people))

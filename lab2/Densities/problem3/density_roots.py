@@ -9,28 +9,31 @@
 from random import randint, random
 from math import sqrt
 
-def findRoots(b, c, pos):
+def find_roots(b, c, pos):
     delta = b ** 2 - 4 * c
     if delta < 0:
         return 0
-    root1 = (b - delta) / 2
-    root2 = (b + delta) / 2
-    if pos:
-        if root1 > 0 and root2 > 0:
-            return 1
-    else:
-        if isinstance(root1, (float, int)) and isinstance(root2, (float, int)):
-            return 1
+    root1 = (b - sqrt(delta)) / 2
+    root2 = (b + sqrt(delta)) / 2
+    if pos and root1 > 0 and root2 > 0:
+        return 1
+    elif not pos and (isinstance(root1, (float, int)) and
+            isinstance(root2, (float, int))):
+        return 1
     return 0
 
-real = 0
-pos = 0
-for i in range(10000):
-    # [-1, 1]
+
+################################################################################
+
+real    = 0
+pos     = 0
+cases   = 10000
+
+for i in range(cases):
     b = random() - randint(0, 1);
     c = random() - randint(0, 1);
-    real += findRoots(b, c, False)
-    pos += findRoots(b, c, True)
+    real += find_roots(b, c, False)
+    pos += find_roots(b, c, True)
 
-print("Probability of real roots is %.2f" % (real / 10000))
-print("Probability of positive roots is %.2f" % (pos / 10000))
+print("Probability of real roots is %.2f" % (real / cases))
+print("Probability of positive roots is %.2f" % (pos / cases))

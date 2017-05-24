@@ -6,9 +6,15 @@
 #---------------- ## ------ ## -- ## ------ ## ---------------|  LAB2--ex8  |--#
 ################################################################################
 
-nrCases = 1000
-deadProbability = 0.01
+from random import random
 
-# Bernoulli Trials (n = 1000, p = 0.01): estimated claims = np #
+cases = 1000
+cases_total = 1000
+dead_probability = 0.01
+cnt = 0
+for i in range(cases * cases_total):
+    rand = random()
+    if rand <= dead_probability:
+        cnt += 1
 
-print("The estimated value is %d." % (nrCases * deadProbability))
+print("The estimated value is %.3f." % (cnt / cases))

@@ -9,7 +9,7 @@
 import fractions as fr
 from math import ceil
 
-def makeTriangle(rows):
+def make_triangle(rows):
     lst = []
     for i in range(1, rows):
         tmp = [fr.Fraction(1, i)]
@@ -20,7 +20,7 @@ def makeTriangle(rows):
     return lst
 
 
-def printTriangle(lst):
+def print_triangle(lst):
     maxi = ceil(lst[len(lst) - 1][1] / 2)
     for i in range(len(lst)):
         cnt = maxi - ceil(lst[i][1] / 2)
@@ -33,6 +33,7 @@ def printTriangle(lst):
 ################################################################################
 
 rows = input("Enter the nr of rows: ")
-if rows.isalpha() or int(rows) < 1: print("Errorino."); exit()
+if rows.isalpha() or int(rows) < 1:
+    print("Errorino."); exit()
 print("\nThe Leibniz's harmonic triangle:\n\n")
-printTriangle(makeTriangle(int(rows) + 1))
+print_triangle(make_triangle(int(rows) + 1))

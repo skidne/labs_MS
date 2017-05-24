@@ -8,7 +8,7 @@
 
 from random import random
 
-def findRoots():
+def find_roots():
     u = random()
     delta = (4 * u) ** 2 - 4
     if delta < 0:
@@ -20,8 +20,12 @@ def findRoots():
             return 1
     return 0
 
-cnt = 0
-for i in range(1000):
-    cnt += findRoots()
 
-print("The probability is %f." % (cnt / 1000))
+################################################################################
+
+cases = 10000
+cnt = 0
+for i in range(cases):
+    cnt += find_roots()
+
+print("The probability is %.3f." % (cnt / cases))

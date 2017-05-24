@@ -9,34 +9,38 @@
 from random import uniform
 from math import sqrt
 
-def findProb(x, y, rightHalf, less5, great5, within5):
-    if x >= 0 and rightHalf:
+def find_prob(x, y, right_half, less5, great5, within5):
+    if right_half and x >= 0:
         return 1
-    if -5 <= x <= 5 and y**2 <= 25 - x**2:
-        if less5:
-            return 1
-    else:
-        if great5:
-            return 1
-    if within5 and -5 <= x <= 5 and (y - 5)**2 <= 25 - x**2:
+    if less5 and -5 <= x <= 5 and y**2 <= 25 - x**2:
+        return 1
+    if great5 and y**2 > 25 - x**2:
+        return 1
+    if within5 and (y - 5)**2 >= 25 - x**2:
         return 1
     return 0
 
-probRightHalf = 0
-probLess5 = 0
-probGreater5 = 0
-probWithin5 = 0
-cases = 1000
 
-for i in range(cases):
+################################################################################
+
+prob_right_half = 0
+prob_less5 = 0
+prob_greater5 = 0
+prob_within5 = 0
+cases = 10000
+i = 0
+
+while i < cases:
     x = uniform(-10, 10)
-    y = uniform(0, sqrt(100 - x**2))
-    probRightHalf += findProb(x, y, True, False, False, False)
-    probLess5 += findProb(x, y, False, True, False, False)
-    probGreater5 += findProb(x, y, False, False, True, False)
-    probWithin5 += findProb(x, y, False, False, False, True)
+    y = uniform(0, 10)
+    if y < sqrt(100 - x**2):
+        prob_right_half += find_prob(x, y, True, False, False, False)
+        prob_less5 += find_prob(x, y, False, True, False, False)
+        prob_greater5 += find_prob(x, y, False, False, True, False)
+        prob_within5 += find_prob(x, y, False, False, False, True)
+        i += 1
 
-print("Right Half of the upper half = %.3f" % (probRightHalf / cases))
-print("Less than 5 inches from the center = %.3f" % (probLess5 / cases))
-print("Greater than 5 inches from the center = %.3f" % (probGreater5 / cases))
-print("Within 5 inches of the point (0, 5) = %.3f" % (probWithin5 / cases))
+print("Right Half of the upper half = %.3f" % (prob_right_half / cases))
+print("Less than 5 inches from the center = %.3f" % (prob_less5 / cases))
+print("Greater than 5 inches from the center = %.3f" % (prob_greater5 / cases))
+print("Within 5 inches of the point (0, 5) = %.3f" % (prob_within5 / cases))

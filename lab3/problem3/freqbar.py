@@ -22,7 +22,6 @@ def cnt_word(word, sent):
         return []
     # reversing to have ascending dates #
     all_wrd.reverse()
-    # a little bit ugly, but it's working #
     cnt = 1
     begin = all_wrd[0]
     end = get_last_day(begin)
@@ -51,12 +50,11 @@ def plotbar(word, thatword):
     plt.xticks(xlocations + 0.5, labels, rotation=30)
     plt.show()
 
+
 ################################################################################
 
-# reusing the code from the previous exercises #
 tw = js.loads(open("../tweets.json").read())
 
-# sent a list of tuples: 1 - tweet, 2 - creation date of tweet #
 sent = list(map(lambda x:
     (x['text'].lower(),
     # got rid of the utc, cuz it was problematic to work with #
